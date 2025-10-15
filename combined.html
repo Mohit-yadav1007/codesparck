@@ -1,0 +1,1131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panto — Complete Interior Design Experience</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Combined CSS Variables */
+    :root {
+      --accent: #f6921e;
+      --muted: #9aa0a6;
+      --bg: #0f1720;
+      --container: 1200px;
+      --card-bg: #f6f6f6;
+      --shadow: 0 30px 60px rgba(0,0,0,0.08);
+      --shadow-light: 0 8px 24px rgba(18,22,26,0.06);
+      --dark: #0e1b2b;
+      --text: #111;
+    }
+
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Poppins', system-ui, Arial, Helvetica, sans-serif;
+      background: white;
+      color: #222;
+      scroll-behavior: smooth;
+    }
+
+    /* Section 1: Hero with Search */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      background-image: linear-gradient(180deg, rgba(8,10,12,0.6), rgba(8,10,12,0.25)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="%23f8f9fa"/><circle cx="200" cy="200" r="100" fill="%23e9ecef" opacity="0.5"/><circle cx="800" cy="300" r="150" fill="%23dee2e6" opacity="0.3"/><circle cx="1000" cy="600" r="80" fill="%23ced4da" opacity="0.4"/></svg>');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 20px 80px;
+    }
+
+    .nav {
+      position: absolute;
+      top: 22px;
+      left: 36px;
+      right: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 5;
+    }
+
+    .nav .brand {
+      color: #fff;
+      font-weight: 700;
+      font-size: 20px;
+      opacity: 0.95;
+    }
+
+    .nav .menu {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      color: rgba(255,255,255,0.9);
+      font-weight: 500;
+    }
+
+    .nav a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    /* Dropdown styles */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: rgba(15, 23, 32, 0.95);
+      backdrop-filter: blur(10px);
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 8px;
+      padding: 8px 0;
+      top: 100%;
+      left: 0;
+      margin-top: 8px;
+    }
+
+    .dropdown-content a {
+      color: rgba(255,255,255,0.9);
+      padding: 8px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: rgba(255,255,255,0.1);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-toggle {
+      cursor: pointer;
+    }
+
+    .hero-inner {
+      max-width: var(--container);
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      padding-top: 40px;
+    }
+
+    .eyebrow {
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      margin: 10px 0 8px;
+      font-size: 78px;
+      line-height: 0.95;
+      letter-spacing: -1px;
+    }
+
+    p.lead {
+      max-width: 680px;
+      margin: 14px auto 28px;
+      color: rgba(255,255,255,0.85);
+      font-size: 24px;
+    }
+
+    .search-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 40px auto 60px;
+    }
+
+    .search {
+      width: 400px;
+      max-width: 86%;
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,0.06);
+      border-radius: 40px;
+      padding: 12px 12px 12px 18px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .search input {
+      flex: 1;
+      background: transparent;
+      border: 0;
+      color: #fff;
+      font-size: 17px;
+      outline: none;
+      padding: 8px;
+    }
+
+    .search .btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin-left: 12px;
+      background: var(--accent);
+      border: 0;
+      cursor: pointer;
+    }
+
+    .search .btn svg {
+      filter: drop-shadow(0 1px 0 rgba(0,0,0,0.2));
+    }
+
+    /* floating hotspots (decorative) */
+    .hotspot {
+      position: absolute;
+      z-index: 4;
+    }
+
+    .hotspot.small {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      display: grid;
+      place-items: center;
+    }
+
+    .hotspot.big {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03));
+      display: grid;
+      place-items: center;
+    }
+
+    /* Section 2: Best Selling Products */
+    .products-section {
+      max-width: var(--container);
+      margin: 60px auto 80px;
+      padding: 48px 24px 120px;
+      background: #f7f7f7;
+      border-radius: 20px;
+    }
+
+    .products-title {
+      font-size: 36px;
+      margin: 0 0 18px;
+      font-weight: 700;
+      text-align: center;
+      color: var(--dark);
+    }
+
+    .pills {
+      display: inline-flex;
+      gap: 10px;
+      margin-bottom: 26px;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .pill {
+      background: #fff;
+      border-radius: 24px;
+      border: 1px solid #e6e6e6;
+      padding: 8px 16px;
+      cursor: pointer;
+      color: #6b6b6b;
+      transition: all 0.3s ease;
+    }
+
+    .pill.active {
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(15,31,38,0.06);
+      color: var(--dark);
+    }
+
+    .carousel-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .carousel {
+      display: flex;
+      gap: 22px;
+      overflow: hidden;
+      padding: 20px 12px;
+      scroll-behavior: smooth;
+    }
+
+    .product-card {
+      width: 220px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(13,20,25,0.06);
+      flex: 0 0 auto;
+    }
+
+    .img-placeholder {
+      height: 190px;
+      background: linear-gradient(180deg,#eef1f3,#ffffff);
+      border-radius: 12px 12px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #d0d6d9;
+    }
+
+    .card-body {
+      padding: 14px;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .product-title {
+      font-size: 16px;
+      margin: 6px 0;
+      color: #1e2a32;
+    }
+
+    .rating {
+      color: #f7b731;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .price {
+      font-weight: 700;
+      color: #1b2b3a;
+    }
+
+    .add {
+      background: var(--dark);
+      color: #fff;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .arrow {
+      position: relative;
+      background: #fff;
+      border-radius: 999px;
+      border: none;
+      box-shadow: 0 6px 18px rgba(13,20,25,0.06);
+      width: 44px;
+      height: 44px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .arrow.left {
+      transform: translateX(-8px);
+    }
+
+    .arrow.right {
+      transform: translateX(8px);
+    }
+
+    .view-all {
+      display: inline-block;
+      margin-top: 18px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      text-align: center;
+      width: 100%;
+    }
+
+    /* Section 3: Experience & Materials */
+    .experience-section {
+      max-width: var(--container);
+      margin: 60px auto 80px;
+      padding: 48px 24px 120px;
+    }
+
+    .experience-hero {
+      padding-top: 10px;
+      padding-bottom: 80px;
+    }
+
+    .experience-inner {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .photo-card {
+      border-radius: 18px;
+      background: var(--card-bg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .photo {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .placeholder {
+      height: 360px;
+      background: linear-gradient(180deg,#e9e9e9 0%,#f7f7f7 100%);
+    }
+
+    .large-card {
+      width: 100%;
+      height: 360px;
+    }
+
+    .experience-text {
+      padding: 12px 8px;
+    }
+
+    .experience-text h1 {
+      font-size: 36px;
+      line-height: 1.05;
+      margin: 0 0 18px;
+      color: var(--text);
+    }
+
+    .experience-text .lead {
+      color: var(--muted);
+      max-width: 420px;
+      line-height: 1.6;
+    }
+
+    .more {
+      display: inline-flex;
+      align-items: center;
+      color: var(--accent);
+      text-decoration: none;
+      margin-top: 16px;
+      font-weight: 600;
+    }
+
+    .more.small {
+      margin-top: 22px;
+    }
+
+    .arrow {
+      margin-left: 8px;
+    }
+
+    .materials {
+      padding-top: 80px;
+    }
+
+    .materials-inner {
+      display: grid;
+      grid-template-columns: 480px 1fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .materials-text {
+      padding-right: 20px;
+    }
+
+    .materials-text h2 {
+      font-size: 28px;
+      margin: 6px 0 16px;
+      color: var(--text);
+    }
+
+    .stacked-photos {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 18px;
+      position: relative;
+    }
+
+    .photo-card.small-card {
+      width: 120px;
+      height: 100px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .photo-card.medium-card {
+      width: 220px;
+      height: 150px;
+      border-radius: 12px;
+    }
+
+    .top {
+      transform: translateY(0);
+    }
+
+    .middle {
+      transform: translateX(20px);
+    }
+
+    .bottom {
+      transform: translateX(0);
+    }
+
+    /* Section 4: Testimonials */
+    .testimonials-section {
+      background: #fafafa;
+      padding: 80px 0;
+      margin: 60px 0;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .section-intro {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      margin: 6px 0 0;
+      color: var(--text);
+    }
+
+    .testimonials-carousel {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .testimonials-arrow {
+      background: #fff;
+      border: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      box-shadow: var(--shadow-light);
+      font-size: 24px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .arrow-left {
+      margin-right: 12px;
+    }
+
+    .arrow-right {
+      margin-left: 12px;
+    }
+
+    .testimonials-cards {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 28px;
+      width: 100%;
+    }
+
+    .testimonial-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: visible;
+    }
+
+    .card-bg {
+      height: 300px;
+      background: linear-gradient(180deg,#e9e9e9,#f6f6f6);
+      border-radius: 12px;
+      box-shadow: var(--shadow-light);
+    }
+
+    .review {
+      position: relative;
+      background: #fff;
+      width: 86%;
+      margin: -60px auto 0;
+      border-radius: 12px;
+      padding: 28px;
+      text-align: center;
+      box-shadow: var(--shadow-light);
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #fff;
+      border: 4px solid #fff;
+      margin: -48px auto 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #222;
+      box-shadow: 0 6px 18px rgba(18,22,26,0.08);
+    }
+
+    .avatar-1 {
+      background: linear-gradient(135deg,#ffd6a6,#ff9f43);
+      color: #fff;
+    }
+
+    .avatar-2 {
+      background: linear-gradient(135deg,#d6e9ff,#5aa8ff);
+      color: #fff;
+    }
+
+    .avatar-3 {
+      background: linear-gradient(135deg,#e6d6ff,#b580ff);
+      color: #fff;
+    }
+
+    .name {
+      margin: 6px 0 0;
+      font-size: 16px;
+      color: var(--text);
+    }
+
+    .role {
+      margin: 4px 0 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .quote {
+      font-size: 14px;
+      color: #444;
+      margin: 12px 0;
+    }
+
+    .stars {
+      color: var(--accent);
+      letter-spacing: 3px;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: #f3f3f3;
+      padding: 48px 0;
+      margin-top: 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 24px;
+    }
+
+    .brand h3 {
+      margin: 0;
+      color: var(--text);
+    }
+
+    .links h4 {
+      margin: 0 0 8px;
+      color: var(--text);
+    }
+
+    .links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .links li {
+      margin-bottom: 4px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 920px) {
+      h1 {
+        font-size: 48px;
+      }
+      
+      .experience-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      
+      .materials-inner {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .materials-text {
+        text-align: left;
+      }
+      
+      .stacked-photos {
+        flex-direction: row;
+        justify-content: center;
+      }
+      
+      .testimonials-cards {
+        grid-template-columns: repeat(1,1fr);
+      }
+      
+      .card-bg {
+        height: 220px;
+      }
+      
+      .review {
+        width: 92%;
+        margin: -40px auto 0;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .carousel {
+        gap: 14px;
+      }
+      
+      .product-card {
+        width: 190px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .pills {
+        flex-wrap: wrap;
+      }
+      
+      .carousel {
+        padding: 12px;
+      }
+      
+      .product-card {
+        width: 160px;
+      }
+      
+      .img-placeholder {
+        height: 140px;
+      }
+      
+      .container {
+        padding: 28px 16px;
+      }
+      
+      .testimonials-carousel {
+        gap: 8px;
+      }
+    }
+
+    /* Accessibility */
+    .carousel:focus {
+      outline: 3px solid rgba(243,156,52,0.15);
+      outline-offset: 6px;
+    }
+
+    .visually-hidden {
+      position: absolute !important;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+      clip: rect(1px,1px,1px,1px);
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <!-- Section 1: Hero with Search -->
+  <header class="hero-section">
+    <nav class="nav">
+      <div class="brand">Panto</div>
+      <div class="menu">
+        <div class="dropdown">
+          <a href="#" class="dropdown-toggle">Furniture</a>
+          <div class="dropdown-content">
+            <a href="#">Living Room</a>
+            <a href="#">Bedroom</a>
+            <a href="#">Kitchen</a>
+            <a href="#">Office</a>
+          </div>
+        </div>
+        <a href="#">Furniture Shop</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <div style="width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.06);display:grid;place-items:center">👜</div>
+      </div>
+    </nav>
+
+    <div class="hero-inner">
+      <h1>Make Your Interior More<br><br>Minimalistic & Modern</h1>
+      <p class="lead">Turn your room with panto into a lot more minimalist and modern with ease and speed</p>
+
+      <div class="search-wrap">
+        <div class="search" role="search">
+          <input aria-label="Search furniture" placeholder="Search furniture" />
+          <button class="btn" aria-label="Search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 21l-4.35-4.35" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="11" cy="11" r="6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- decorative hotspots to mimic original -->
+    <div class="hotspot" style="left:80px;bottom:220px">
+      <div class="big"></div>
+    </div>
+    <div class="hotspot" style="left:250px;bottom:220px">
+      <div class="small"></div>
+    </div>
+    <div class="hotspot" style="right:50px;bottom:220px">
+      <div class="small"></div>
+    </div>
+  </header>
+
+  <!-- Section 2: Best Selling Products -->
+  <section class="products-section">
+    <h1 class="products-title">Best Selling Product</h1>
+
+    <nav class="pills" aria-label="product categories">
+      <button class="pill active">Chair</button>
+      <button class="pill">Beds</button>
+      <button class="pill">Sofa</button>
+      <button class="pill">Lamp</button>
+    </nav>
+
+    <div class="carousel-wrap">
+      <button class="arrow left" aria-label="previous">‹</button>
+
+      <div class="carousel" tabindex="0">
+        <article class="product-card">
+          <div class="img-placeholder"></div>
+          <div class="card-body">
+            <small class="muted">Chair</small>
+            <h3 class="product-title">Sakarias Armchair</h3>
+            <div class="rating">★★★★★</div>
+            <div class="card-footer">
+              <div class="price">$392</div>
+              <button class="add">+</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="img-placeholder"></div>
+          <div class="card-body">
+            <small class="muted">Chair</small>
+            <h3 class="product-title">Baltsar Chair</h3>
+            <div class="rating">★★★★★</div>
+            <div class="card-footer">
+              <div class="price">$299</div>
+              <button class="add">+</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="img-placeholder"></div>
+          <div class="card-body">
+            <small class="muted">Chair</small>
+            <h3 class="product-title">Anjay Chair</h3>
+            <div class="rating">★★★★★</div>
+            <div class="card-footer">
+              <div class="price">$519</div>
+              <button class="add">+</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="img-placeholder"></div>
+          <div class="card-body">
+            <small class="muted">Chair</small>
+            <h3 class="product-title">Nyantuy Chair</h3>
+            <div class="rating">★★★★★</div>
+            <div class="card-footer">
+              <div class="price">$921</div>
+              <button class="add">+</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="img-placeholder"></div>
+          <div class="card-body">
+            <small class="muted">Chair</small>
+            <h3 class="product-title">Extra Chair</h3>
+            <div class="rating">★★★★★</div>
+            <div class="card-footer">
+              <div class="price">$450</div>
+              <button class="add">+</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <button class="arrow right" aria-label="next">›</button>
+    </div>
+
+    <a class="view-all" href="#">View All →</a>
+  </section>
+
+  <!-- Section 3: Experience & Materials -->
+  <section class="experience-section">
+    <div class="experience-hero">
+      <div class="experience-inner">
+        <div class="photo-card large-card" aria-hidden="true">
+          <div class="photo placeholder"></div>
+        </div>
+
+        <div class="experience-text">
+          <div class="eyebrow">EXPERIENCES</div>
+          <h1>We Provide You The<br/>Best Experience</h1>
+          <p class="lead">You don't have to worry about the result because all of these interiors are made by people who are professionals in their fields with an elegant and luxurious style and with premium quality materials.</p>
+          <a class="more" href="#">More Info <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="materials">
+      <div class="materials-inner">
+        <div class="materials-text">
+          <div class="eyebrow small">MATERIALS</div>
+          <h2>Very Serious<br> Materials For Making<br> Furniture</h2>
+          <p class="muted">Because panto was very serious about designing furniture for our environment, using a very expensive and famous capital but at a relatively low price.</p>
+          <a class="more small" href="#">More Info <span class="arrow">→</span></a>
+        </div>
+
+        <div class="stacked-photos">
+          <div class="photo-card small-card top">
+            <div class="photo placeholder"></div>
+          </div>
+          <div class="photo-card medium-card middle">
+            <div class="photo placeholder"></div>
+          </div>
+          <div class="photo-card medium-card bottom">
+            <div class="photo placeholder"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Testimonials -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-intro">
+        <h2 class="eyebrow">TESTIMONIALS</h2>
+        <h3 class="section-title">Our Client Reviews</h3>
+      </div>
+
+      <div class="testimonials-carousel">
+        <button class="testimonials-arrow arrow-left" aria-label="previous">‹</button>
+
+        <div class="testimonials-cards">
+          <article class="testimonial-card">
+            <div class="card-bg"></div>
+            <div class="review">
+              <div class="avatar avatar-1">AB</div>
+              <h4 class="name">Bang Upin</h4>
+              <p class="role">Pedagang Asongan</p>
+              <p class="quote">"Terimakasih banyak, kini ruanganku menjadi lebih mewah dan terlihat mahal"</p>
+              <div class="stars">★★★★★</div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="card-bg"></div>
+            <div class="review">
+              <div class="avatar avatar-2">IK</div>
+              <h4 class="name">Ibuk Sukijan</h4>
+              <p class="role">Ibu Rumah Tangga</p>
+              <p class="quote">"Makasih Panto, aku sekarang berasa tinggal di apartment karena barang-barang yang terlihat mewah"</p>
+              <div class="stars">★★★★★</div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="card-bg"></div>
+            <div class="review">
+              <div class="avatar avatar-3">MI</div>
+              <h4 class="name">Mpok Ina</h4>
+              <p class="role">Karyawan Swasta</p>
+              <p class="quote">"Sangat terjangkau untuk kantong saya yang tidak terlalu banyak"</p>
+              <div class="stars">★★★★★</div>
+            </div>
+          </article>
+        </div>
+
+        <button class="testimonials-arrow arrow-right" aria-label="next">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="brand">
+        <h3>Panto</h3>
+        <p>The advantage of hiring a workspace with us is that gives you comfortable service and all-around facilities.</p>
+      </div>
+      <div class="links">
+        <h4>Services</h4>
+        <ul>
+          <li>Email Marketing</li>
+          <li>Campaigns</li>
+          <li>Branding</li>
+        </ul>
+      </div>
+      <div class="links">
+        <h4>Furniture</h4>
+        <ul>
+          <li>Beds</li>
+          <li>Chair</li>
+          <li>All</li>
+        </ul>
+      </div>
+      <div class="links">
+        <h4>Follow Us</h4>
+        <ul>
+          <li>Facebook</li>
+          <li>Twitter</li>
+          <li>Instagram</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Combined JavaScript functionality
+    
+    // Search functionality
+    document.querySelector('.search input').addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){
+        alert('Searching for: ' + this.value);
+      }
+    });
+    
+    document.querySelector('.search .btn').addEventListener('click', function(){
+      var v = document.querySelector('.search input').value;
+      alert('Searching for: ' + v);
+    });
+
+    // Products carousel functionality
+    (() => {
+      const wrap = document.querySelector('.carousel-wrap');
+      if (!wrap) return;
+
+      const carousel = wrap.querySelector('.carousel');
+      const left = wrap.querySelector('.arrow.left');
+      const right = wrap.querySelector('.arrow.right');
+
+      const cardWidth = () => {
+        const card = carousel.querySelector('.product-card');
+        if (!card) return 0;
+        const gap = parseInt(getComputedStyle(carousel).gap || 20, 10);
+        return card.offsetWidth + gap;
+      };
+
+      left.addEventListener('click', () => {
+        carousel.scrollBy({ left: -cardWidth() * 2, behavior: 'smooth' });
+      });
+
+      right.addEventListener('click', () => {
+        carousel.scrollBy({ left: cardWidth() * 2, behavior: 'smooth' });
+      });
+
+      carousel.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') left.click();
+        else if (e.key === 'ArrowRight') right.click();
+      });
+
+      const updateArrows = () => {
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth - 1;
+        left.style.visibility = carousel.scrollLeft > 5 ? 'visible' : 'hidden';
+        right.style.visibility = carousel.scrollLeft < maxScroll ? 'visible' : 'hidden';
+      };
+
+      carousel.addEventListener('scroll', updateArrows);
+      window.addEventListener('resize', updateArrows);
+      updateArrows();
+    })();
+
+    // Testimonials carousel functionality
+    (function() {
+      const container = document.querySelector('.testimonials-cards');
+      const left = document.querySelector('.arrow-left');
+      const right = document.querySelector('.arrow-right');
+      let index = 0;
+
+      function update() {
+        const cols = getComputedStyle(container).gridTemplateColumns.split(' ').length;
+        const cardWidth = container.querySelector('.testimonial-card').getBoundingClientRect().width + 28;
+        container.style.transform = `translateX(${-cardWidth * index}px)`;
+      }
+
+      left.addEventListener('click', () => {
+        index = Math.max(0, index - 1);
+        update();
+      });
+
+      right.addEventListener('click', () => {
+        const cols = getComputedStyle(container).gridTemplateColumns.split(' ').length;
+        const max = Math.max(0, container.children.length - cols);
+        index = Math.min(max, index + 1);
+        update();
+      });
+
+      window.addEventListener('resize', () => {
+        container.style.transition = 'none';
+        container.style.transform = 'translateX(0)';
+        index = 0;
+        setTimeout(() => container.style.transition = '', 50);
+      });
+    })();
+
+    // Pill navigation functionality
+    document.querySelectorAll('.pill').forEach(pill => {
+      pill.addEventListener('click', function() {
+        document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // Add to cart functionality
+    document.querySelectorAll('.add').forEach(button => {
+      button.addEventListener('click', function() {
+        const productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
+        alert(`Added ${productTitle} to cart!`);
+      });
+    });
+  </script>
+</body>
+</html>
