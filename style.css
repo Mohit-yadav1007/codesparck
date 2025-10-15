@@ -182,7 +182,7 @@ body {
 
 
 .hero-image {
-  /* hide the inline image - we're using it as the background now */
+
   display: none;
 }
 
@@ -196,6 +196,18 @@ body {
 .why-choosing {
   padding: 100px 0;
   background: var(--bg-white);
+}
+
+
+.why-choosing > .container {
+  display: grid;
+  grid-template-columns: 320px 1fr; 
+  gap: 40px;
+  align-items: center; 
+}
+
+.why-choosing .section-title {
+  margin-bottom: 0; 
 }
 
 .section-title {
@@ -672,6 +684,12 @@ body {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
+  }
+
+  /* make the why-choosing section stack on narrower screens */
+  .why-choosing > .container {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 }
 
